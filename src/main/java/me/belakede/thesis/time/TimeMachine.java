@@ -12,6 +12,9 @@ public class TimeMachine {
     private static Clock clock = Clock.systemDefaultZone();
     private static ZoneId zoneId = ZoneId.systemDefault();
 
+    private TimeMachine() {
+    }
+
     public static LocalDateTime now() {
         return LocalDateTime.now(getClock());
     }
