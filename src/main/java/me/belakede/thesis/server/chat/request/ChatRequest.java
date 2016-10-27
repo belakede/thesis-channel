@@ -15,6 +15,7 @@ public class ChatRequest implements Serializable {
     private String message;
 
     public ChatRequest() {
+        // It's required
     }
 
     public ChatRequest(String room) {
