@@ -16,7 +16,7 @@ public class UserResponseTest {
     public static final class UserResponseEqualsAndHashCodeTest extends ExtendedEqualsHashCodeTestCase {
 
         public UserResponseEqualsAndHashCodeTest(String name) {
-            super(name, UserResponse.class, Arrays.asList());
+            super(name, UserResponse.class, Arrays.asList("username"));
         }
 
         @Override
