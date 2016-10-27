@@ -13,6 +13,7 @@ public class UserResponse implements Serializable {
     private String username;
 
     public UserResponse() {
+        // It's required
     }
 
     public UserResponse(String username) {
