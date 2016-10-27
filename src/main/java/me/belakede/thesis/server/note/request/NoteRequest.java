@@ -16,7 +16,7 @@ public class NoteRequest implements Serializable {
     @XmlElement(required = true)
     private String room;
     @XmlElement
-    private Card card;
+    private String card;
     @XmlElement
     private String owner;
     @XmlElement
@@ -31,6 +31,10 @@ public class NoteRequest implements Serializable {
     }
 
     public NoteRequest(String room, Card card, String owner, Marker marker) {
+        this(room, card.name(), owner, marker);
+    }
+
+    public NoteRequest(String room, String card, String owner, Marker marker) {
         this.room = room;
         this.card = card;
         this.owner = owner;
@@ -49,11 +53,11 @@ public class NoteRequest implements Serializable {
         this.room = room;
     }
 
-    public Card getCard() {
+    public String getCard() {
         return card;
     }
 
-    public void setCard(Card card) {
+    public void setCard(String card) {
         this.card = card;
     }
 

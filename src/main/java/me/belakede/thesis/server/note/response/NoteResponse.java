@@ -13,7 +13,7 @@ public class NoteResponse implements Serializable {
     private static final long serialVersionUID = -2734850575924360317L;
 
     @XmlElement
-    private Card card;
+    private String card;
     @XmlElement
     private String owner;
     @XmlElement
@@ -24,16 +24,20 @@ public class NoteResponse implements Serializable {
     }
 
     public NoteResponse(Card card, String owner, Marker marker) {
+        this(card.name(), owner, marker);
+    }
+
+    public NoteResponse(String card, String owner, Marker marker) {
         this.card = card;
         this.owner = owner;
         this.marker = marker;
     }
 
-    public Card getCard() {
+    public String getCard() {
         return card;
     }
 
-    public void setCard(Card card) {
+    public void setCard(String card) {
         this.card = card;
     }
 
