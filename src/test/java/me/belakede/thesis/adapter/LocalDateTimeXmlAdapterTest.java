@@ -1,13 +1,12 @@
 package me.belakede.thesis.adapter;
 
-import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.time.LocalDateTime;
 
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 
 public class LocalDateTimeXmlAdapterTest {

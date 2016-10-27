@@ -9,8 +9,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 
-import static org.junit.Assert.*;
-
 @RunWith(Enclosed.class)
 public class UsersResponseTest {
 
@@ -37,5 +35,5 @@ public class UsersResponseTest {
             super(name, UsersResponse.class);
         }
     }
-    
+
 }

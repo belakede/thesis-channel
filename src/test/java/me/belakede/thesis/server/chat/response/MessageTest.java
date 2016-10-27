@@ -11,8 +11,6 @@ import org.junit.runner.RunWith;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 
-import static org.junit.Assert.*;
-
 @RunWith(Enclosed.class)
 public class MessageTest {
 

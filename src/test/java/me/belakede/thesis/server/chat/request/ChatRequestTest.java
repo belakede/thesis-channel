@@ -33,5 +33,5 @@ public class ChatRequestTest {
             super(name, ChatRequest.class);
         }
     }
-    
+
 }
