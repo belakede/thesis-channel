@@ -15,6 +15,7 @@ public class SuggestionResponse implements Serializable {
     private Suspicion suspicion;
 
     public SuggestionResponse() {
+        // It's necessary for an entity
     }
 
     public SuggestionResponse(Suspicion suspicion) {

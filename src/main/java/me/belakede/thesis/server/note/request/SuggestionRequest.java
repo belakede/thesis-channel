@@ -17,6 +17,7 @@ public class SuggestionRequest implements Serializable {
     private Suspicion suspicion;
 
     public SuggestionRequest() {
+        // It's necessary for an entity
     }
 
     public SuggestionRequest(String room) {
