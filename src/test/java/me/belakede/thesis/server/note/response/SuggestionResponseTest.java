@@ -11,15 +11,13 @@ import org.junit.runner.RunWith;
 
 import java.util.Arrays;
 
-import static org.junit.Assert.*;
-
 @RunWith(Enclosed.class)
 public class SuggestionResponseTest {
 
     public static final class SuggestionResponseEqualsAndHashCodeTest extends ExtendedEqualsHashCodeTestCase {
 
         public SuggestionResponseEqualsAndHashCodeTest(String name) {
-            super(name, SuggestionResponse.class, Arrays.asList("suspicion"));
+            super(name, SuggestionResponse.class, Arrays.asList("suspect", "room", "weapon"));
         }
 
         @Override

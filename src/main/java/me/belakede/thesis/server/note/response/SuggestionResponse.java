@@ -1,51 +1,28 @@
 package me.belakede.thesis.server.note.response;
 
+import me.belakede.thesis.game.equipment.Room;
+import me.belakede.thesis.game.equipment.Suspect;
 import me.belakede.thesis.game.equipment.Suspicion;
+import me.belakede.thesis.game.equipment.Weapon;
+import me.belakede.thesis.server.note.Suggestion;
 
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.io.Serializable;
 
 @XmlRootElement
-public class SuggestionResponse implements Serializable {
+public class SuggestionResponse extends Suggestion {
 
     private static final long serialVersionUID = -1815793765631688612L;
-
-    @XmlElement
-    private Suspicion suspicion;
 
     public SuggestionResponse() {
         // It's necessary for an entity
     }
 
     public SuggestionResponse(Suspicion suspicion) {
-        this.suspicion = suspicion;
+        super(suspicion);
     }
 
-    public Suspicion getSuspicion() {
-        return suspicion;
-    }
-
-    public void setSuspicion(Suspicion suspicion) {
-        this.suspicion = suspicion;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        SuggestionResponse that = (SuggestionResponse) o;
-
-        return suspicion != null ? suspicion.equals(that.suspicion) : that.suspicion == null;
-    }
-
-    @Override
-    public int hashCode() {
-        return suspicion != null ? suspicion.hashCode() : 0;
+    public SuggestionResponse(Suspect suspect, Room room, Weapon weapon) {
+        super(suspect, room, weapon);
     }
 
 }
