@@ -4,18 +4,15 @@ import me.belakede.thesis.game.equipment.Room;
 import me.belakede.thesis.game.equipment.Suspect;
 import me.belakede.thesis.game.equipment.Suspicion;
 import me.belakede.thesis.game.equipment.Weapon;
-import me.belakede.thesis.server.note.request.SuggestionRequest;
-import me.belakede.thesis.server.note.response.SuggestionResponse;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlSeeAlso;
 import java.io.Serializable;
 
 @XmlRootElement
 public class Suggestion implements Serializable {
 
-    private static final long serialVersionUID = 7506322178645646404L;
+    private static final long serialVersionUID = 5910051487909316916L;
 
     @XmlElement
     protected Suspect suspect;
@@ -25,6 +22,7 @@ public class Suggestion implements Serializable {
     protected Weapon weapon;
 
     public Suggestion() {
+        // It's required for an entity
     }
 
     public Suggestion(Suspicion suspicion) {
