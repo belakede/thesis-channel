@@ -20,6 +20,7 @@ public class Note implements Serializable {
     protected Marker marker;
 
     public Note() {
+        // It's required for an entity
     }
 
     public Note(Card card, String owner, Marker marker) {
