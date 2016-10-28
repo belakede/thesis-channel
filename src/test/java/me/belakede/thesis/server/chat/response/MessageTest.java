@@ -27,7 +27,7 @@ public class MessageTest {
     public static final class MessageResponseEqualsAndHashCodeTest extends ExtendedEqualsHashCodeTestCase {
 
         public MessageResponseEqualsAndHashCodeTest(String name) {
-            super(name, Message.class, Arrays.asList("sender", "time", "message"));
+            super(name, Message.class, Arrays.asList("sender", "time", "content"));
         }
 
         @Override
