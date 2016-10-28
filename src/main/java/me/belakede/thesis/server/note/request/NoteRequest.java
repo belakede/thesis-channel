@@ -3,24 +3,18 @@ package me.belakede.thesis.server.note.request;
 
 import me.belakede.thesis.game.equipment.Card;
 import me.belakede.thesis.game.equipment.Marker;
+import me.belakede.thesis.server.note.Note;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.io.Serializable;
 
 @XmlRootElement
-public class NoteRequest implements Serializable {
+public class NoteRequest extends Note {
 
     private static final long serialVersionUID = 5125113855361171708L;
 
     @XmlElement(required = true)
     private String room;
-    @XmlElement
-    private String card;
-    @XmlElement
-    private String owner;
-    @XmlElement
-    private Marker marker;
 
     public NoteRequest() {
         // It's required for an entity
@@ -51,30 +45,6 @@ public class NoteRequest implements Serializable {
 
     public void setRoom(String room) {
         this.room = room;
-    }
-
-    public String getCard() {
-        return card;
-    }
-
-    public void setCard(String card) {
-        this.card = card;
-    }
-
-    public String getOwner() {
-        return owner;
-    }
-
-    public void setOwner(String owner) {
-        this.owner = owner;
-    }
-
-    public Marker getMarker() {
-        return marker;
-    }
-
-    public void setMarker(Marker marker) {
-        this.marker = marker;
     }
 
     @Override
