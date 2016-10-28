@@ -19,17 +19,17 @@ public class SuggestionRequestTest {
     public static final class SuggestionRequestEqualsAndHashCodeTest extends ExtendedEqualsHashCodeTestCase {
 
         public SuggestionRequestEqualsAndHashCodeTest(String name) {
-            super(name, SuggestionRequest.class, Arrays.asList("room", "suggestion"));
+            super(name, SuggestionRequest.class, Arrays.asList("suspect", "room", "weapon"));
         }
 
         @Override
         protected SuggestionRequest createInstance() throws Exception {
-            return new SuggestionRequest("room", new DefaultSuspicion(Suspect.PLUM, Room.LIBRARY, Weapon.ROPE));
+            return new SuggestionRequest(Suspect.PLUM, Room.LIBRARY, Weapon.ROPE);
         }
 
         @Override
         protected SuggestionRequest createNotEqualInstance() throws Exception {
-            return new SuggestionRequest("room", new DefaultSuspicion(Suspect.MUSTARD, Room.LIBRARY, Weapon.ROPE));
+            return new SuggestionRequest(Suspect.MUSTARD, Room.LIBRARY, Weapon.ROPE);
         }
     }
 
