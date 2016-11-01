@@ -5,8 +5,8 @@ import me.belakede.thesis.server.game.Games;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 
 @XmlRootElement
 public class GamesRequest extends Games implements Serializable {
@@ -16,7 +16,7 @@ public class GamesRequest extends Games implements Serializable {
         // It's required for an entity
     }
 
-    public GamesRequest(BoardType boardType, List<String> users) {
+    public GamesRequest(BoardType boardType, Collection<String> users) {
         this.boardType = boardType;
         this.users = new HashSet<>(users);
     }
