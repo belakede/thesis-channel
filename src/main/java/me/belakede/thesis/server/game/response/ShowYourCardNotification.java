@@ -5,7 +5,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
 @XmlRootElement
-public class ShowYourCardNotification implements Serializable {
+public class ShowYourCardNotification implements Notification, Serializable {
     private static final long serialVersionUID = 2281939501392619758L;
 
     @XmlElement

@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.util.Optional;
 
 @XmlRootElement
-public class FigurineNotification implements Serializable {
+public class FigurineNotification implements Notification, Serializable {
     private static final long serialVersionUID = 5093964245423152907L;
 
     @XmlElement

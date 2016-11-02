@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
 @XmlRootElement
-public class PairOfDiceNotification implements Serializable {
+public class PairOfDiceNotification implements Notification, Serializable {
     private static final long serialVersionUID = -4632478208261689890L;
 
     @XmlElement

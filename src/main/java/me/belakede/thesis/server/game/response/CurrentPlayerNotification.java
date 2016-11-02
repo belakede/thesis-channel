@@ -5,7 +5,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
 @XmlRootElement
-public class CurrentPlayerNotification implements Serializable {
+public class CurrentPlayerNotification implements Notification, Serializable {
     private static final long serialVersionUID = 273668219223262763L;
 
     @XmlElement

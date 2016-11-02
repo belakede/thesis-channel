@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
 @XmlRootElement
-public class SuspicionNotification extends Suspicion implements Serializable {
+public class SuspicionNotification extends Suspicion implements Notification, Serializable {
     private static final long serialVersionUID = -530663703588895110L;
 
     public SuspicionNotification() {
