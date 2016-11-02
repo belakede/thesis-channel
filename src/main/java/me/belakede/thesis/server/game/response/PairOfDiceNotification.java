@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
 @XmlRootElement
-public class PairOfDiceStatus implements Serializable {
+public class PairOfDiceNotification implements Serializable {
     private static final long serialVersionUID = -4632478208261689890L;
 
     @XmlElement
@@ -15,15 +15,15 @@ public class PairOfDiceStatus implements Serializable {
     @XmlElement
     private int second;
 
-    public PairOfDiceStatus() {
+    public PairOfDiceNotification() {
         // It's required for an entity
     }
 
-    public PairOfDiceStatus(PairOfDice pairOfDice) {
+    public PairOfDiceNotification(PairOfDice pairOfDice) {
         this(pairOfDice.getFirst(), pairOfDice.getSecond());
     }
 
-    public PairOfDiceStatus(int first, int second) {
+    public PairOfDiceNotification(int first, int second) {
         this.first = first;
         this.second = second;
     }
@@ -53,7 +53,7 @@ public class PairOfDiceStatus implements Serializable {
             return false;
         }
 
-        PairOfDiceStatus that = (PairOfDiceStatus) o;
+        PairOfDiceNotification that = (PairOfDiceNotification) o;
 
         return first == that.first && second == that.second;
     }
