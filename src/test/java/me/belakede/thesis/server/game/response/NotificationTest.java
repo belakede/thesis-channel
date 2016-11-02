@@ -82,6 +82,26 @@ public class NotificationTest {
         assertThat(actual, is(expectedObject));
     }
 
+    @Test
+    public void testFigurineNotificationSerialization() throws Exception {
+        Notification player = new FigurineNotification(Suspect.WHITE, new Coordinate(1, 10));
+        String expectedJson = "{\"type\":\"figurine\",\"suspect\":\"WHITE\",\"weapon\":null,\"position\":{\"row\":1,\"column\":10}}";
+
+        String actualJson = toJson(player);
+
+        assertThat(actualJson, is(expectedJson));
+    }
+
+    @Test
+    public void testFigurineNotificationDeserialization() throws Exception {
+        String figurine = "{\"type\":\"figurine\",\"suspect\":null,\"weapon\":\"REVOLVER\",\"position\":{\"row\":28,\"column\":10}}";
+        Notification expectedObject = new FigurineNotification(Weapon.REVOLVER, new Coordinate(28, 10));
+
+        Notification actual = toObject(figurine);
+
+        assertThat(actual, is(expectedObject));
+    }
+
 
 
     private String toJson(Notification notification) throws JsonProcessingException {
