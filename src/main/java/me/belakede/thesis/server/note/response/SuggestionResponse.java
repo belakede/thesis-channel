@@ -2,14 +2,13 @@ package me.belakede.thesis.server.note.response;
 
 import me.belakede.thesis.game.equipment.Room;
 import me.belakede.thesis.game.equipment.Suspect;
-import me.belakede.thesis.game.equipment.Suspicion;
 import me.belakede.thesis.game.equipment.Weapon;
-import me.belakede.thesis.server.Suggestion;
+import me.belakede.thesis.server.Suspicion;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class SuggestionResponse extends Suggestion {
+public class SuggestionResponse extends Suspicion {
 
     private static final long serialVersionUID = -1815793765631688612L;
 
@@ -17,7 +16,7 @@ public class SuggestionResponse extends Suggestion {
         // It's necessary for an entity
     }
 
-    public SuggestionResponse(Suspicion suspicion) {
+    public SuggestionResponse(me.belakede.thesis.game.equipment.Suspicion suspicion) {
         super(suspicion);
     }
 

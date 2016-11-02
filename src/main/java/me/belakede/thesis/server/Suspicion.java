@@ -2,7 +2,6 @@ package me.belakede.thesis.server;
 
 import me.belakede.thesis.game.equipment.Room;
 import me.belakede.thesis.game.equipment.Suspect;
-import me.belakede.thesis.game.equipment.Suspicion;
 import me.belakede.thesis.game.equipment.Weapon;
 
 import javax.xml.bind.annotation.XmlElement;
@@ -10,7 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
 @XmlRootElement
-public class Suggestion implements Serializable {
+public class Suspicion implements Serializable {
 
     private static final long serialVersionUID = 5910051487909316916L;
 
@@ -21,15 +20,15 @@ public class Suggestion implements Serializable {
     @XmlElement
     protected Weapon weapon;
 
-    public Suggestion() {
+    public Suspicion() {
         // It's required for an entity
     }
 
-    public Suggestion(Suspicion suspicion) {
+    public Suspicion(me.belakede.thesis.game.equipment.Suspicion suspicion) {
         this(suspicion.getSuspect(), suspicion.getRoom(), suspicion.getWeapon());
     }
 
-    public Suggestion(Suspect suspect, Room room, Weapon weapon) {
+    public Suspicion(Suspect suspect, Room room, Weapon weapon) {
         this.suspect = suspect;
         this.room = room;
         this.weapon = weapon;
@@ -68,7 +67,7 @@ public class Suggestion implements Serializable {
             return false;
         }
 
-        Suggestion that = (Suggestion) o;
+        Suspicion that = (Suspicion) o;
 
         return suspect == that.suspect && room == that.room && weapon == that.weapon;
     }
