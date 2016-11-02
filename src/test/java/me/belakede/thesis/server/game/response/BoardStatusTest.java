@@ -13,39 +13,39 @@ import java.util.Arrays;
 import java.util.List;
 
 @RunWith(Enclosed.class)
-public class BoardNotificationTest {
+public class BoardStatusTest {
 
-    public static final class BoardNotificationEqualsHashCodeTest extends ExtendedEqualsHashCodeTestCase {
+    public static final class BoardStatusEqualsHashCodeTest extends ExtendedEqualsHashCodeTestCase {
 
-        public BoardNotificationEqualsHashCodeTest(String name) {
-            super(name, BoardNotification.class, Arrays.asList("boardType", "positions"));
+        public BoardStatusEqualsHashCodeTest(String name) {
+            super(name, BoardStatus.class, Arrays.asList("boardType", "positions"));
         }
 
         @Override
-        protected BoardNotification createInstance() throws Exception {
+        protected BoardStatus createInstance() throws Exception {
             List<FigurineNotification> positions = new ArrayList<>(5);
             positions.add(new FigurineNotification(Suspect.MUSTARD, new Coordinate(10, 14)));
             positions.add(new FigurineNotification(Suspect.SCARLET, new Coordinate(21, 9)));
             positions.add(new FigurineNotification(Weapon.KNIFE, new Coordinate(25, 26)));
             positions.add(new FigurineNotification(Weapon.ROPE, new Coordinate(1, 9)));
-            return new BoardNotification(BoardType.DEFAULT, positions);
+            return new BoardStatus(BoardType.DEFAULT, positions);
         }
 
         @Override
-        protected BoardNotification createNotEqualInstance() throws Exception {
+        protected BoardStatus createNotEqualInstance() throws Exception {
             List<FigurineNotification> positions = new ArrayList<>(5);
             positions.add(new FigurineNotification(Suspect.MUSTARD, new Coordinate(10, 14)));
             positions.add(new FigurineNotification(Weapon.KNIFE, new Coordinate(25, 26)));
             positions.add(new FigurineNotification(Weapon.ROPE, new Coordinate(1, 9)));
             positions.add(new FigurineNotification(Weapon.CANDLESTICK, new Coordinate(2, 9)));
-            return new BoardNotification(BoardType.DEFAULT, positions);
+            return new BoardStatus(BoardType.DEFAULT, positions);
         }
     }
 
-    public static final class BoardNotificationPojoTest extends PojoClassTestCase {
+    public static final class BoardStatusPojoTest extends PojoClassTestCase {
 
-        public BoardNotificationPojoTest(String name) {
-            super(name, BoardNotification.class);
+        public BoardStatusPojoTest(String name) {
+            super(name, BoardStatus.class);
         }
     }
 

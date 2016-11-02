@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @XmlRootElement
-public class BoardNotification implements Serializable {
+public class BoardStatus implements Serializable {
     private static final long serialVersionUID = 7184283344433343450L;
 
     @XmlElement
@@ -16,11 +16,11 @@ public class BoardNotification implements Serializable {
     @XmlElement
     private List<FigurineNotification> positions;
 
-    public BoardNotification() {
+    public BoardStatus() {
         // It's required for an entity
     }
 
-    public BoardNotification(BoardType boardType, List<FigurineNotification> positions) {
+    public BoardStatus(BoardType boardType, List<FigurineNotification> positions) {
         this.boardType = boardType;
         this.positions = positions;
     }
@@ -46,7 +46,7 @@ public class BoardNotification implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        BoardNotification that = (BoardNotification) o;
+        BoardStatus that = (BoardStatus) o;
 
         return (boardType == that.boardType)
                 && (positions != null ? positions.equals(that.positions) : that.positions == null);
