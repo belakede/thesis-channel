@@ -13,7 +13,7 @@ public class GamesResponseTest {
     public static final class GamesResponseEqualsHashCodeTest extends ExtendedEqualsHashCodeTestCase {
 
         public GamesResponseEqualsHashCodeTest(String name) {
-            super(name, GamesResponse.class, Arrays.asList("users", "boardType"));
+            super(name, GamesResponse.class, Arrays.asList("id", "users", "boardType"));
         }
 
         @Override
