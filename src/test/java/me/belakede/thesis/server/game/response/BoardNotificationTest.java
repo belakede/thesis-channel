@@ -13,41 +13,41 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RunWith(Enclosed.class)
-public class BoardStatusTest {
+public class BoardNotificationTest {
 
-    public static final class BoardStatusEqualsHashCodeTest extends ExtendedEqualsHashCodeTestCase {
+    public static final class BoardNotificationEqualsHashCodeTest extends ExtendedEqualsHashCodeTestCase {
 
-        public BoardStatusEqualsHashCodeTest(String name) {
-            super(name, BoardStatus.class, Arrays.asList("boardType", "positions"));
+        public BoardNotificationEqualsHashCodeTest(String name) {
+            super(name, BoardNotification.class, Arrays.asList("boardType", "positions"));
         }
 
         @Override
-        protected BoardStatus createInstance() throws Exception {
+        protected BoardNotification createInstance() throws Exception {
             Map<Suspect, Coordinate> suspectPositions = new HashMap<>(2);
             suspectPositions.put(Suspect.MUSTARD, new Coordinate(10, 14));
             suspectPositions.put(Suspect.SCARLET, new Coordinate(21, 9));
             Map<Weapon, Coordinate> weaponPositions = new HashMap<>(2);
             weaponPositions.put(Weapon.KNIFE, new Coordinate(25, 26));
             weaponPositions.put(Weapon.ROPE, new Coordinate(1, 9));
-            return new BoardStatus(BoardType.DEFAULT, suspectPositions, weaponPositions);
+            return new BoardNotification(BoardType.DEFAULT, suspectPositions, weaponPositions);
         }
 
         @Override
-        protected BoardStatus createNotEqualInstance() throws Exception {
+        protected BoardNotification createNotEqualInstance() throws Exception {
             Map<Suspect, Coordinate> suspectPositions = new HashMap<>(1);
             suspectPositions.put(Suspect.MUSTARD, new Coordinate(10, 14));
             Map<Weapon, Coordinate> weaponPositions = new HashMap<>(2);
             weaponPositions.put(Weapon.KNIFE, new Coordinate(25, 26));
             weaponPositions.put(Weapon.ROPE, new Coordinate(1, 9));
             weaponPositions.put(Weapon.CANDLESTICK, new Coordinate(2, 9));
-            return new BoardStatus(BoardType.DEFAULT, suspectPositions, weaponPositions);
+            return new BoardNotification(BoardType.DEFAULT, suspectPositions, weaponPositions);
         }
     }
 
-    public static final class BoardStatusPojoTest extends PojoClassTestCase {
+    public static final class BoardNotificationPojoTest extends PojoClassTestCase {
 
-        public BoardStatusPojoTest(String name) {
-            super(name, BoardStatus.class);
+        public BoardNotificationPojoTest(String name) {
+            super(name, BoardNotification.class);
         }
     }
 

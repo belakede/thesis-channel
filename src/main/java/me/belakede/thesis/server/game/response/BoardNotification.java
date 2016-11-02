@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.util.Map;
 
 @XmlRootElement
-public class BoardStatus implements Serializable {
+public class BoardNotification implements Serializable {
     private static final long serialVersionUID = 7184283344433343450L;
 
     @XmlElement
@@ -20,11 +20,11 @@ public class BoardStatus implements Serializable {
     @XmlElement
     private Map<Weapon, Coordinate> weaponPositions;
 
-    public BoardStatus() {
+    public BoardNotification() {
         // It's required for an entity
     }
 
-    public BoardStatus(BoardType boardType, Map<Suspect, Coordinate> suspectPositions, Map<Weapon, Coordinate> weaponPositions) {
+    public BoardNotification(BoardType boardType, Map<Suspect, Coordinate> suspectPositions, Map<Weapon, Coordinate> weaponPositions) {
         this.boardType = boardType;
         this.suspectPositions = suspectPositions;
         this.weaponPositions = weaponPositions;
@@ -59,7 +59,7 @@ public class BoardStatus implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        BoardStatus that = (BoardStatus) o;
+        BoardNotification that = (BoardNotification) o;
 
         return (boardType == that.boardType)
                 && (suspectPositions != null ? suspectPositions.equals(that.suspectPositions) : that.suspectPositions == null)
