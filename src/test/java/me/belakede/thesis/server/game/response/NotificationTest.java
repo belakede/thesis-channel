@@ -62,6 +62,27 @@ public class NotificationTest {
         assertThat(otherActual, is(otherExpectedObject));
     }
 
+    @Test
+    public void testCurrentPlayerNotificationSerialization() throws Exception {
+        Notification player = new CurrentPlayerNotification("admin");
+        String expectedJson = "{\"type\":\"player\",\"current\":\"admin\"}";
+
+        String actualJson = toJson(player);
+
+        assertThat(actualJson, is(expectedJson));
+    }
+
+    @Test
+    public void testCurrentPlayerNotificationDeserialization() throws Exception {
+        String player = "{\"type\":\"player\",\"current\":\"testuser\"}";
+        Notification expectedObject = new CurrentPlayerNotification("testuser");
+
+        Notification actual = toObject(player);
+
+        assertThat(actual, is(expectedObject));
+    }
+
+
 
     private String toJson(Notification notification) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
