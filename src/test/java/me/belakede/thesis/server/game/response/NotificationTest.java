@@ -84,10 +84,10 @@ public class NotificationTest {
 
     @Test
     public void testFigurineNotificationSerialization() throws Exception {
-        Notification player = new FigurineNotification(Suspect.WHITE, new Coordinate(1, 10));
+        Notification figurine = new FigurineNotification(Suspect.WHITE, new Coordinate(1, 10));
         String expectedJson = "{\"type\":\"figurine\",\"suspect\":\"WHITE\",\"weapon\":null,\"position\":{\"row\":1,\"column\":10}}";
 
-        String actualJson = toJson(player);
+        String actualJson = toJson(figurine);
 
         assertThat(actualJson, is(expectedJson));
     }
@@ -102,7 +102,25 @@ public class NotificationTest {
         assertThat(actual, is(expectedObject));
     }
 
+    @Test
+    public void testPairOfDiceNotificationSerialization() throws Exception {
+        Notification dice = new PairOfDiceNotification(3, 6);
+        String expectedJson = "{\"type\":\"dice\",\"first\":3,\"second\":6}";
 
+        String actualJson = toJson(dice);
+
+        assertThat(actualJson, is(expectedJson));
+    }
+
+    @Test
+    public void testPairOfDiceNotificationDeserialization() throws Exception {
+        String dice = "{\"type\":\"dice\",\"first\":4,\"second\":5}";
+        Notification expectedObject = new PairOfDiceNotification(4, 5);
+
+        Notification actual = toObject(dice);
+
+        assertThat(actual, is(expectedObject));
+    }
 
     private String toJson(Notification notification) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
