@@ -1,5 +1,6 @@
 package me.belakede.thesis.server.game.response;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import me.belakede.thesis.game.equipment.PairOfDice;
 
 import javax.xml.bind.annotation.XmlElement;
@@ -7,6 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
 @XmlRootElement
+@JsonDeserialize(as = Notification.class)
 public class PairOfDiceNotification implements Notification, Serializable {
     private static final long serialVersionUID = -4632478208261689890L;
 

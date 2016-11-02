@@ -1,5 +1,6 @@
 package me.belakede.thesis.server.game.response;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import me.belakede.thesis.game.equipment.Figurine;
 import me.belakede.thesis.game.equipment.Suspect;
 import me.belakede.thesis.game.equipment.Weapon;
@@ -10,6 +11,7 @@ import java.io.Serializable;
 import java.util.Optional;
 
 @XmlRootElement
+@JsonDeserialize(as = Notification.class)
 public class FigurineNotification implements Notification, Serializable {
     private static final long serialVersionUID = 5093964245423152907L;
 
