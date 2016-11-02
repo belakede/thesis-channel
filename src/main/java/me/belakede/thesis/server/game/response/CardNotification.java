@@ -1,8 +1,13 @@
 package me.belakede.thesis.server.game.response;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import me.belakede.thesis.game.equipment.Card;
+import me.belakede.thesis.internal.game.util.Cards;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
+import java.util.Optional;
 
 @XmlRootElement
 public class CardNotification implements Notification, Serializable {
@@ -40,6 +45,11 @@ public class CardNotification implements Notification, Serializable {
 
     public void setShown(boolean shown) {
         this.shown = shown;
+    }
+
+    @JsonIgnore
+    public Optional<Card> getCardValue() {
+        return Cards.valueOf(card);
     }
 
     @Override
