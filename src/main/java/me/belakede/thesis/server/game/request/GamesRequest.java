@@ -6,7 +6,6 @@ import me.belakede.thesis.server.game.Games;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.HashSet;
 
 @XmlRootElement
 public class GamesRequest extends Games implements Serializable {
@@ -17,29 +16,7 @@ public class GamesRequest extends Games implements Serializable {
     }
 
     public GamesRequest(BoardType boardType, Collection<String> users) {
-        this.boardType = boardType;
-        this.users = new HashSet<>(users);
+        super(boardType, users);
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-
-        GamesRequest that = (GamesRequest) o;
-
-        return (users != null ? users.equals(that.users) : that.users == null)
-                && boardType == that.boardType;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = users != null ? users.hashCode() : 0;
-        result = 31 * result + (boardType != null ? boardType.hashCode() : 0);
-        return result;
-    }
 }

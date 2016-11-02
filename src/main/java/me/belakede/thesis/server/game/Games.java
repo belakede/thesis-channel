@@ -14,10 +14,10 @@ public class Games implements Serializable {
     private static final long serialVersionUID = -283366408918520107L;
 
     @XmlElement(required = true)
-    protected Set<String> users;
+    private Set<String> users;
 
     @XmlElement(required = true)
-    protected BoardType boardType;
+    private BoardType boardType;
 
     public Games() {
         // It's required for an entity
