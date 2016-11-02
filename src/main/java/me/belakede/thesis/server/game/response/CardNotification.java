@@ -1,13 +1,10 @@
 package me.belakede.thesis.server.game.response;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
 @XmlRootElement
-@JsonDeserialize(as = Notification.class)
 public class CardNotification implements Notification, Serializable {
     private static final long serialVersionUID = 8539454504018659788L;
 
@@ -22,6 +19,7 @@ public class CardNotification implements Notification, Serializable {
 
     public CardNotification(String card) {
         this.card = card;
+        this.shown = true;
     }
 
     public CardNotification(boolean shown) {

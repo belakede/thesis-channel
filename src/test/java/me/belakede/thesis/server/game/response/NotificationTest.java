@@ -16,7 +16,6 @@ public class NotificationTest {
 
     @Test
     public void testAccusationNotificationSerialization() throws Exception {
-        ObjectMapper objectMapper = new ObjectMapper();
         Notification accusation = new AccusationNotification(Suspect.GREEN, Room.HALL, Weapon.KNIFE);
         String expectedJson = "{\"type\":\"accusation\",\"suspect\":\"GREEN\",\"room\":\"HALL\",\"weapon\":\"KNIFE\"}";
 
@@ -33,6 +32,34 @@ public class NotificationTest {
         Notification actual = toObject(accusation);
 
         assertThat(actual, is(expectedObject));
+    }
+
+    @Test
+    public void testCardNotificationSerialization() throws Exception {
+        Notification card = new CardNotification(Suspect.PLUM.name());
+        Notification otherCard = new CardNotification();
+        String expectedJson = "{\"type\":\"card\",\"card\":\"PLUM\",\"shown\":true}";
+        String otherExpectedJson = "{\"type\":\"card\",\"card\":null,\"shown\":false}";
+
+        String actualJson = toJson(card);
+        String otherActualJson = toJson(otherCard);
+
+        assertThat(actualJson, is(expectedJson));
+        assertThat(otherActualJson, is(otherExpectedJson));
+    }
+
+    @Test
+    public void testCardNotificationDeserialization() throws Exception {
+        String card = "{\"type\":\"card\",\"card\":\"WHITE\",\"shown\":true}";
+        String otherCard = "{\"type\":\"card\",\"card\":null,\"shown\":false}";
+        Notification expectedObject = new CardNotification(Suspect.WHITE.name());
+        Notification otherExpectedObject = new CardNotification();
+
+        Notification actual = toObject(card);
+        Notification otherActual = toObject(otherCard);
+
+        assertThat(actual, is(expectedObject));
+        assertThat(otherActual, is(otherExpectedObject));
     }
 
 
