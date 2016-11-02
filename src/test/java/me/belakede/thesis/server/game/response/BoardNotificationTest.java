@@ -8,9 +8,9 @@ import me.belakede.thesis.junit.PojoClassTestCase;
 import org.junit.experimental.runners.Enclosed;
 import org.junit.runner.RunWith;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 @RunWith(Enclosed.class)
 public class BoardNotificationTest {
@@ -23,24 +23,22 @@ public class BoardNotificationTest {
 
         @Override
         protected BoardNotification createInstance() throws Exception {
-            Map<Suspect, Coordinate> suspectPositions = new HashMap<>(2);
-            suspectPositions.put(Suspect.MUSTARD, new Coordinate(10, 14));
-            suspectPositions.put(Suspect.SCARLET, new Coordinate(21, 9));
-            Map<Weapon, Coordinate> weaponPositions = new HashMap<>(2);
-            weaponPositions.put(Weapon.KNIFE, new Coordinate(25, 26));
-            weaponPositions.put(Weapon.ROPE, new Coordinate(1, 9));
-            return new BoardNotification(BoardType.DEFAULT, suspectPositions, weaponPositions);
+            List<FigurineNotification> positions = new ArrayList<>(5);
+            positions.add(new FigurineNotification(Suspect.MUSTARD, new Coordinate(10, 14)));
+            positions.add(new FigurineNotification(Suspect.SCARLET, new Coordinate(21, 9)));
+            positions.add(new FigurineNotification(Weapon.KNIFE, new Coordinate(25, 26)));
+            positions.add(new FigurineNotification(Weapon.ROPE, new Coordinate(1, 9)));
+            return new BoardNotification(BoardType.DEFAULT, positions);
         }
 
         @Override
         protected BoardNotification createNotEqualInstance() throws Exception {
-            Map<Suspect, Coordinate> suspectPositions = new HashMap<>(1);
-            suspectPositions.put(Suspect.MUSTARD, new Coordinate(10, 14));
-            Map<Weapon, Coordinate> weaponPositions = new HashMap<>(2);
-            weaponPositions.put(Weapon.KNIFE, new Coordinate(25, 26));
-            weaponPositions.put(Weapon.ROPE, new Coordinate(1, 9));
-            weaponPositions.put(Weapon.CANDLESTICK, new Coordinate(2, 9));
-            return new BoardNotification(BoardType.DEFAULT, suspectPositions, weaponPositions);
+            List<FigurineNotification> positions = new ArrayList<>(5);
+            positions.add(new FigurineNotification(Suspect.MUSTARD, new Coordinate(10, 14)));
+            positions.add(new FigurineNotification(Weapon.KNIFE, new Coordinate(25, 26)));
+            positions.add(new FigurineNotification(Weapon.ROPE, new Coordinate(1, 9)));
+            positions.add(new FigurineNotification(Weapon.CANDLESTICK, new Coordinate(2, 9)));
+            return new BoardNotification(BoardType.DEFAULT, positions);
         }
     }
 
