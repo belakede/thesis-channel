@@ -1,6 +1,5 @@
 package me.belakede.thesis.server.game.response;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import me.belakede.thesis.game.equipment.Room;
 import me.belakede.thesis.game.equipment.Suspect;
 import me.belakede.thesis.game.equipment.Weapon;
@@ -10,7 +9,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
 @XmlRootElement
-@JsonDeserialize(as = Notification.class)
 public class AccusationNotification extends Suspicion implements Notification, Serializable {
     private static final long serialVersionUID = -7253018293755865274L;
 
