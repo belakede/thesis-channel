@@ -4,7 +4,7 @@ import me.belakede.thesis.game.equipment.Room;
 import me.belakede.thesis.game.equipment.Suspect;
 import me.belakede.thesis.game.equipment.Suspicion;
 import me.belakede.thesis.game.equipment.Weapon;
-import me.belakede.thesis.server.note.Suggestion;
+import me.belakede.thesis.server.Suggestion;
 
 import javax.xml.bind.annotation.XmlRootElement;
 

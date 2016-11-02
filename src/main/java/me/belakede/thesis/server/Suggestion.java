@@ -1,4 +1,4 @@
-package me.belakede.thesis.server.note;
+package me.belakede.thesis.server;
 
 import me.belakede.thesis.game.equipment.Room;
 import me.belakede.thesis.game.equipment.Suspect;
