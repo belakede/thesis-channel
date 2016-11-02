@@ -142,6 +142,26 @@ public class NotificationTest {
         assertThat(actual, is(expectedObject));
     }
 
+    @Test
+    public void testSuspicionNotificationSerialization() throws Exception {
+        Notification suspicion = new SuspicionNotification(Suspect.GREEN, Room.HALL, Weapon.KNIFE);
+        String expectedJson = "{\"type\":\"suspicion\",\"suspect\":\"GREEN\",\"room\":\"HALL\",\"weapon\":\"KNIFE\"}";
+
+        String actualJson = toJson(suspicion);
+
+        assertThat(actualJson, is(expectedJson));
+    }
+
+    @Test
+    public void testSuspicionNotificationDeserialization() throws Exception {
+        String suspicion = "{\"type\":\"suspicion\",\"suspect\":\"WHITE\",\"room\":\"BATHROOM\",\"weapon\":\"ROPE\"}";
+        Notification expectedObject = new SuspicionNotification(Suspect.WHITE, Room.BATHROOM, Weapon.ROPE);
+
+        Notification actual = toObject(suspicion);
+
+        assertThat(actual, is(expectedObject));
+    }
+
     private String toJson(Notification notification) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.writeValueAsString(notification);
