@@ -1,13 +1,17 @@
 package me.belakede.thesis.server.game.response;
 
+import me.belakede.thesis.game.equipment.Card;
 import me.belakede.thesis.game.equipment.Suspect;
+import me.belakede.thesis.internal.game.util.Cards;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @XmlRootElement
 public class PlayerStatus implements Serializable {
@@ -48,6 +52,14 @@ public class PlayerStatus implements Serializable {
 
     public void setCards(Set<String> cards) {
         this.cards = cards;
+    }
+
+    public Set<Card> getCardSet() {
+        return cards.stream()
+                .map(Cards::valueOf)
+                .filter(Optional::isPresent)
+                .map(Optional::get)
+                .collect(Collectors.toSet());
     }
 
     public boolean isAlive() {
