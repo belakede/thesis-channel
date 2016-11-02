@@ -122,6 +122,26 @@ public class NotificationTest {
         assertThat(actual, is(expectedObject));
     }
 
+    @Test
+    public void testShowYourCardNotificationSerialization() throws Exception {
+        Notification show = new ShowYourCardNotification("hello");
+        String expectedJson = "{\"type\":\"show\",\"message\":\"hello\"}";
+
+        String actualJson = toJson(show);
+
+        assertThat(actualJson, is(expectedJson));
+    }
+
+    @Test
+    public void testShowYourCardNotificationDeserialization() throws Exception {
+        String show = "{\"type\":\"show\",\"message\":null}";
+        Notification expectedObject = new ShowYourCardNotification();
+
+        Notification actual = toObject(show);
+
+        assertThat(actual, is(expectedObject));
+    }
+
     private String toJson(Notification notification) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.writeValueAsString(notification);
