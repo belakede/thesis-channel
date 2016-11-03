@@ -8,10 +8,8 @@ import me.belakede.thesis.game.equipment.Weapon;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.util.Arrays;
 
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.isOneOf;
 import static org.junit.Assert.assertThat;
 
 public class NotificationTest {
@@ -52,27 +50,6 @@ public class NotificationTest {
         Notification expectedObject = new SuspicionNotification(Suspect.WHITE, Room.BATHROOM, Weapon.ROPE);
 
         Notification actual = toObject(suspicion);
-
-        assertThat(actual, is(expectedObject));
-    }
-
-    @Test
-    public void testPlayerOutNotificationSerialization() throws Exception {
-        Notification wrong = new PlayerOutNotification("testuser1", Arrays.asList("HALL", "KNIFE"));
-        String expectedJson = "{\"type\":\"wrong\",\"user\":\"testuser1\",\"cards\":[\"HALL\",\"KNIFE\"]}";
-        String otherExpectedJson = "{\"type\":\"wrong\",\"user\":\"testuser1\",\"cards\":[\"KNIFE\",\"HALL\"]}";
-
-        String actualJson = toJson(wrong);
-
-        assertThat(actualJson, isOneOf(expectedJson, otherExpectedJson));
-    }
-
-    @Test
-    public void testPlayerOutNotificationDeserialization() throws Exception {
-        String wrong = "{\"type\":\"wrong\",\"user\":\"admin\",\"cards\":[\"WHITE\",\"BATHROOM\",\"ROPE\"]}";
-        Notification expectedObject = new PlayerOutNotification("admin", Arrays.asList(Suspect.WHITE.name(), Room.BATHROOM.name(), Weapon.ROPE.name()));
-
-        Notification actual = toObject(wrong);
 
         assertThat(actual, is(expectedObject));
     }
