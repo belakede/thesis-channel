@@ -17,26 +17,6 @@ import static org.junit.Assert.assertThat;
 public class NotificationTest {
 
     @Test
-    public void testFigurineNotificationSerialization() throws Exception {
-        Notification figurine = new FigurineNotification(Suspect.WHITE, new Coordinate(1, 10));
-        String expectedJson = "{\"type\":\"figurine\",\"suspect\":\"WHITE\",\"weapon\":null,\"position\":{\"row\":1,\"column\":10}}";
-
-        String actualJson = toJson(figurine);
-
-        assertThat(actualJson, is(expectedJson));
-    }
-
-    @Test
-    public void testFigurineNotificationDeserialization() throws Exception {
-        String figurine = "{\"type\":\"figurine\",\"suspect\":null,\"weapon\":\"REVOLVER\",\"position\":{\"row\":28,\"column\":10}}";
-        Notification expectedObject = new FigurineNotification(Weapon.REVOLVER, new Coordinate(28, 10));
-
-        Notification actual = toObject(figurine);
-
-        assertThat(actual, is(expectedObject));
-    }
-
-    @Test
     public void testPairOfDiceNotificationSerialization() throws Exception {
         Notification dice = new PairOfDiceNotification(3, 6);
         String expectedJson = "{\"type\":\"dice\",\"first\":3,\"second\":6}";
