@@ -14,7 +14,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @XmlRootElement
-public class PlayerStatus implements Serializable {
+public class PlayerStatusNotification implements Notification, Serializable {
     private static final long serialVersionUID = 4496164386972802178L;
 
     @XmlElement
@@ -24,15 +24,15 @@ public class PlayerStatus implements Serializable {
     @XmlElement
     private boolean alive;
 
-    public PlayerStatus() {
+    public PlayerStatusNotification() {
         // It's required for an entity
     }
 
-    public PlayerStatus(Suspect figurine, Collection<String> cards) {
+    public PlayerStatusNotification(Suspect figurine, Collection<String> cards) {
         this(figurine, cards, true);
     }
 
-    public PlayerStatus(Suspect figurine, Collection<String> cards, boolean alive) {
+    public PlayerStatusNotification(Suspect figurine, Collection<String> cards, boolean alive) {
         this.figurine = figurine;
         this.cards = new HashSet<>(cards);
         this.alive = alive;
@@ -79,7 +79,7 @@ public class PlayerStatus implements Serializable {
             return false;
         }
 
-        PlayerStatus that = (PlayerStatus) o;
+        PlayerStatusNotification that = (PlayerStatusNotification) o;
 
         return (alive == that.alive)
                 && (figurine == that.figurine)
