@@ -25,6 +25,15 @@ public class FigurineNotification implements Notification, Serializable {
         // It's required for an entity
     }
 
+    public FigurineNotification(String figurine, Coordinate position) {
+        try {
+            this.suspect = Suspect.valueOf(figurine);
+        } catch (Exception ex) {
+            this.weapon = Weapon.valueOf(figurine);
+        }
+        this.position = position;
+    }
+
     public FigurineNotification(Suspect suspect, Coordinate position) {
         this.suspect = suspect;
         this.position = position;
