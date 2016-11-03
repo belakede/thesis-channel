@@ -10,6 +10,7 @@ import org.junit.experimental.runners.Enclosed;
 import org.junit.runner.RunWith;
 
 import java.util.Arrays;
+import java.util.Collection;
 
 @RunWith(Enclosed.class)
 public class PlayerOutNotificationTest {
@@ -48,7 +49,19 @@ public class PlayerOutNotificationTest {
 
         @Override
         public String expectedJson() {
-            return "{\"type\":\"wrong\",\"user\":\"admin\",\"cards\":[\"WHITE\",\"ROPE\",\"BATHROOM\"]}";
+            return "{\"type\":\"wrong\",\"user\":\"admin\",\"cards\":[\"WHITE\",\"BATHROOM\",\"ROPE\"]}";
+        }
+
+        @Override
+        public Collection<String> jsonContains() {
+            return Arrays.asList(
+                    "\"type\":\"wrong\"",
+                    "\"user\":\"admin\"",
+                    "\"cards\":[",
+                    "\"WHITE\"",
+                    "\"ROPE\"",
+                    "\"BATHROOM\""
+            );
         }
     }
 
