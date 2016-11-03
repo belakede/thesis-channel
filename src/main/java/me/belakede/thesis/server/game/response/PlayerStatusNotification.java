@@ -1,5 +1,6 @@
 package me.belakede.thesis.server.game.response;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import me.belakede.thesis.game.equipment.Card;
 import me.belakede.thesis.game.equipment.Suspect;
 import me.belakede.thesis.internal.game.util.Cards;
@@ -54,6 +55,7 @@ public class PlayerStatusNotification implements Notification, Serializable {
         this.cards = cards;
     }
 
+    @JsonIgnore
     public Set<Card> getCardSet() {
         return cards.stream()
                 .map(Cards::valueOf)
