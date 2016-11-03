@@ -15,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         @JsonSubTypes.Type(value = PlayerJoinedNotification.class, name = "join"),
         @JsonSubTypes.Type(value = PlayerOutNotification.class, name = "wrong"),
         @JsonSubTypes.Type(value = PlayerStatusNotification.class, name = "player_status"),
+        @JsonSubTypes.Type(value = RoomNotification.class, name = "room"),
         @JsonSubTypes.Type(value = ShowYourCardNotification.class, name = "show"),
         @JsonSubTypes.Type(value = SuspicionNotification.class, name = "suspicion")
 })
