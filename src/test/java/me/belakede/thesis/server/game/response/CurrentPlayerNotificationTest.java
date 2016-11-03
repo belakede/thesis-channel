@@ -1,6 +1,7 @@
 package me.belakede.thesis.server.game.response;
 
 import me.belakede.thesis.junit.ExtendedEqualsHashCodeTestCase;
+import me.belakede.thesis.junit.JacksonSerializationTestCase;
 import me.belakede.thesis.junit.PojoClassTestCase;
 import org.junit.experimental.runners.Enclosed;
 import org.junit.runner.RunWith;
@@ -11,7 +12,6 @@ import java.util.Collections;
 public class CurrentPlayerNotificationTest {
 
     public static final class CurrentPlayerNotificationEqualsHashCodeTest extends ExtendedEqualsHashCodeTestCase {
-
         public CurrentPlayerNotificationEqualsHashCodeTest(String name) {
             super(name, CurrentPlayerNotification.class, Collections.singletonList("current"));
         }
@@ -28,10 +28,24 @@ public class CurrentPlayerNotificationTest {
     }
 
     public static final class CurrentPlayerNotificationPojoTest extends PojoClassTestCase {
-
         public CurrentPlayerNotificationPojoTest(String name) {
             super(name, CurrentPlayerNotification.class);
         }
     }
 
+    public static final class CurrentPlayerJacksonTest extends JacksonSerializationTestCase<Notification> {
+        public CurrentPlayerJacksonTest(String name) {
+            super(name);
+        }
+
+        @Override
+        public Notification expectedObject() {
+            return new CurrentPlayerNotification("testuser");
+        }
+
+        @Override
+        public String expectedJson() {
+            return "{\"type\":\"player\",\"current\":\"testuser\"}";
+        }
+    }
 }
