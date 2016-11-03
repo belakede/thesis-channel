@@ -38,7 +38,7 @@ public class AccusationNotificationTest {
 
     public static final class AccusationNotificationJacksonTest extends JacksonSerializationTestCase<Notification> {
         public AccusationNotificationJacksonTest(String name) {
-            super(name, Notification.class);
+            super(name);
         }
 
         @Override
