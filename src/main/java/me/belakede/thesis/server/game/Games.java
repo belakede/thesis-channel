@@ -1,20 +1,14 @@
 package me.belakede.thesis.server.game;
 
 import me.belakede.thesis.game.equipment.BoardType;
-import me.belakede.thesis.game.equipment.Suspect;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
 
 @XmlRootElement
 public class Games implements Serializable {
     private static final long serialVersionUID = -283366408918520107L;
-
-    @XmlElement(required = true)
-    private Map<Suspect, String> users;
 
     @XmlElement(required = true)
     private BoardType boardType;
@@ -23,17 +17,8 @@ public class Games implements Serializable {
         // It's required for an entity
     }
 
-    public Games(BoardType boardType, Map<Suspect, String> users) {
-        this.users = new HashMap<>(users);
+    public Games(BoardType boardType) {
         this.boardType = boardType;
-    }
-
-    public Map<Suspect, String> getUsers() {
-        return users;
-    }
-
-    public void setUsers(Map<Suspect, String> users) {
-        this.users = users;
     }
 
     public BoardType getBoardType() {
@@ -55,14 +40,12 @@ public class Games implements Serializable {
 
         Games games = (Games) o;
 
-        return (users != null ? users.equals(games.users) : games.users == null)
-                && boardType == games.boardType;
+        return boardType == games.boardType;
+
     }
 
     @Override
     public int hashCode() {
-        int result = users != null ? users.hashCode() : 0;
-        result = 31 * result + (boardType != null ? boardType.hashCode() : 0);
-        return result;
+        return boardType != null ? boardType.hashCode() : 0;
     }
 }
