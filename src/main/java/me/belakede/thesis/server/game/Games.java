@@ -1,20 +1,20 @@
 package me.belakede.thesis.server.game;
 
 import me.belakede.thesis.game.equipment.BoardType;
+import me.belakede.thesis.game.equipment.Suspect;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 @XmlRootElement
 public class Games implements Serializable {
     private static final long serialVersionUID = -283366408918520107L;
 
     @XmlElement(required = true)
-    private Set<String> users;
+    private Map<Suspect, String> users;
 
     @XmlElement(required = true)
     private BoardType boardType;
@@ -23,16 +23,16 @@ public class Games implements Serializable {
         // It's required for an entity
     }
 
-    public Games(BoardType boardType, Collection<String> users) {
-        this.users = new HashSet<>(users);
+    public Games(BoardType boardType, Map<Suspect, String> users) {
+        this.users = new HashMap<>(users);
         this.boardType = boardType;
     }
 
-    public Set<String> getUsers() {
+    public Map<Suspect, String> getUsers() {
         return users;
     }
 
-    public void setUsers(Set<String> users) {
+    public void setUsers(Map<Suspect, String> users) {
         this.users = users;
     }
 

@@ -1,11 +1,12 @@
 package me.belakede.thesis.server.game.response;
 
 import me.belakede.thesis.game.equipment.BoardType;
+import me.belakede.thesis.game.equipment.Suspect;
 import me.belakede.thesis.server.game.Games;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.Map;
 
 @XmlRootElement
 public class GamesResponse extends Games implements Serializable {
@@ -17,7 +18,7 @@ public class GamesResponse extends Games implements Serializable {
         // It's required for an entity
     }
 
-    public GamesResponse(Long id, BoardType boardType, Collection<String> users) {
+    public GamesResponse(Long id, BoardType boardType, Map<Suspect, String> users) {
         super(boardType, users);
         this.id = id;
     }
