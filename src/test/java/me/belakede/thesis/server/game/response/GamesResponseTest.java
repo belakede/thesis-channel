@@ -4,6 +4,7 @@ import me.belakede.thesis.game.equipment.BoardType;
 import me.belakede.thesis.game.equipment.Suspect;
 import me.belakede.thesis.junit.ExtendedEqualsHashCodeTestCase;
 import me.belakede.thesis.junit.PojoClassTestCase;
+import me.belakede.thesis.server.game.domain.Status;
 import me.belakede.thesis.time.TimeMachine;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -40,14 +41,14 @@ public class GamesResponseTest {
             users.put(Suspect.SCARLET, "admin");
             users.put(Suspect.MUSTARD, "demo1");
             users.put(Suspect.GREEN, "demo2");
-            return new GamesResponse(1L, BoardType.DEFAULT, TimeMachine.now(), users);
+            return new GamesResponse(1L, BoardType.DEFAULT, Status.CREATED, TimeMachine.now(), users);
         }
 
         @Override
         protected GamesResponse createNotEqualInstance() throws Exception {
             Map<Suspect, String> users = new HashMap<>();
             users.put(Suspect.WHITE, "demo2");
-            return new GamesResponse(2L, BoardType.ADVANCED, TimeMachine.now(), users);
+            return new GamesResponse(2L, BoardType.ADVANCED, Status.CREATED, TimeMachine.now(), users);
         }
     }
 

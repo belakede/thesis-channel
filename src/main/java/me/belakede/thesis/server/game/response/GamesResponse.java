@@ -3,6 +3,7 @@ package me.belakede.thesis.server.game.response;
 import me.belakede.thesis.game.equipment.BoardType;
 import me.belakede.thesis.game.equipment.Suspect;
 import me.belakede.thesis.server.game.Games;
+import me.belakede.thesis.server.game.domain.Status;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -23,6 +24,9 @@ public class GamesResponse extends Games implements Serializable {
     @XmlElement
     private LocalDateTime time;
 
+    @XmlElement
+    private Status status;
+
     @XmlElement(required = true)
     private Map<Suspect, String> users;
 
@@ -31,11 +35,12 @@ public class GamesResponse extends Games implements Serializable {
         // It's required for an entity
     }
 
-    public GamesResponse(Long id, BoardType boardType, LocalDateTime time, Map<Suspect, String> users) {
+    public GamesResponse(Long id, BoardType boardType, Status status, LocalDateTime time, Map<Suspect, String> users) {
         super(boardType);
         this.id = id;
         this.time = time;
         this.users = users;
+        this.status = status;
     }
 
     public Long getId() {
@@ -60,6 +65,14 @@ public class GamesResponse extends Games implements Serializable {
 
     public void setTime(LocalDateTime time) {
         this.time = time;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     public Map<Suspect, String> getUsers() {
@@ -87,6 +100,7 @@ public class GamesResponse extends Games implements Serializable {
         return (id != null ? id.equals(that.id) : that.id == null)
                 && (roomId != null ? roomId.equals(that.roomId) : that.roomId == null)
                 && (time != null ? time.equals(that.time) : that.time == null)
+                && (status == that.status)
                 && (users != null ? users.equals(that.users) : that.users == null);
     }
 
@@ -96,6 +110,7 @@ public class GamesResponse extends Games implements Serializable {
         result = 31 * result + (id != null ? id.hashCode() : 0);
         result = 31 * result + (roomId != null ? roomId.hashCode() : 0);
         result = 31 * result + (time != null ? time.hashCode() : 0);
+        result = 31 * result + (status != null ? status.hashCode() : 0);
         result = 31 * result + (users != null ? users.hashCode() : 0);
         return result;
     }
