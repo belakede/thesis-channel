@@ -41,14 +41,14 @@ public class GamesResponseTest {
             users.put(Suspect.SCARLET, "admin");
             users.put(Suspect.MUSTARD, "demo1");
             users.put(Suspect.GREEN, "demo2");
-            return new GamesResponse(1L, BoardType.DEFAULT, Status.CREATED, TimeMachine.now(), users);
+            return new GamesResponse(1L, "test-room", BoardType.DEFAULT, Status.CREATED, TimeMachine.now(), users);
         }
 
         @Override
         protected GamesResponse createNotEqualInstance() throws Exception {
             Map<Suspect, String> users = new HashMap<>();
             users.put(Suspect.WHITE, "demo2");
-            return new GamesResponse(2L, BoardType.ADVANCED, Status.CREATED, TimeMachine.now(), users);
+            return new GamesResponse(2L, "test-room", BoardType.ADVANCED, Status.CREATED, TimeMachine.now(), users);
         }
     }
 

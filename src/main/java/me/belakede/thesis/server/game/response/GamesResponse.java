@@ -35,12 +35,13 @@ public class GamesResponse extends Games implements Serializable {
         // It's required for an entity
     }
 
-    public GamesResponse(Long id, BoardType boardType, Status status, LocalDateTime time, Map<Suspect, String> users) {
+    public GamesResponse(Long id, String roomId, BoardType boardType, Status status, LocalDateTime time, Map<Suspect, String> users) {
         super(boardType);
         this.id = id;
         this.time = time;
         this.users = users;
         this.status = status;
+        this.roomId = roomId;
     }
 
     public Long getId() {
