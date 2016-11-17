@@ -24,6 +24,8 @@ public class PlayerStatusNotification implements Notification, Serializable {
     private Set<String> cards;
     @XmlElement
     private boolean alive;
+    @XmlElement
+    private Set<String> alreadyWaiting;
 
     public PlayerStatusNotification() {
         // It's required for an entity
@@ -70,6 +72,14 @@ public class PlayerStatusNotification implements Notification, Serializable {
 
     public void setAlive(boolean alive) {
         this.alive = alive;
+    }
+
+    public Set<String> getAlreadyWaiting() {
+        return alreadyWaiting;
+    }
+
+    public void setAlreadyWaiting(Set<String> alreadyWaiting) {
+        this.alreadyWaiting = alreadyWaiting;
     }
 
     @Override
