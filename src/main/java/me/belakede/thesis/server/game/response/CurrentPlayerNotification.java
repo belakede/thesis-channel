@@ -45,4 +45,9 @@ public class CurrentPlayerNotification implements Notification, Serializable {
     public int hashCode() {
         return current != null ? current.hashCode() : 0;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s köre kezdődik", current);
+    }
 }

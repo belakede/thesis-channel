@@ -23,4 +23,9 @@ public class AccusationNotification extends Suspicion implements Notification, S
     public AccusationNotification(Suspect suspect, Room room, Weapon weapon) {
         super(suspect, room, weapon);
     }
+
+    @Override
+    public String toString() {
+        return String.format("It was %s in the %s with the %", suspect, room, weapon);
+    }
 }
