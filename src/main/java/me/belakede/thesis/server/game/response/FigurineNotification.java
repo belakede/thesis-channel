@@ -70,7 +70,7 @@ public class FigurineNotification implements Notification, Serializable {
 
     @JsonIgnore
     public Figurine getFigurine() {
-        return Optional.<Figurine>of(suspect).orElse(weapon);
+        return Optional.<Figurine>ofNullable(suspect).orElse(weapon);
     }
 
     @Override
