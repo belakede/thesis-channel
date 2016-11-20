@@ -44,4 +44,10 @@ public class ShowYourCardNotification implements Notification, Serializable {
     public int hashCode() {
         return message != null ? message.hashCode() : 0;
     }
+
+
+    @Override
+    public String toString() {
+        return "Mutasd a kártyád!";
+    }
 }

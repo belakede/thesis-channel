@@ -96,4 +96,9 @@ public class FigurineNotification implements Notification, Serializable {
         result = 31 * result + (position != null ? position.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s mozgatása a (%d,%d) mezőre", getFigurine().name(), getPosition().getRow(), getPosition().getColumn());
+    }
 }
