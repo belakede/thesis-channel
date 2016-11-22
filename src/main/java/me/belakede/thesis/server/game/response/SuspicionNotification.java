@@ -24,4 +24,8 @@ public class SuspicionNotification extends Suspicion implements Notification, Se
         super(suspect, room, weapon);
     }
 
+    @Override
+    public String toString() {
+        return "Ganyusítás. Gyanusított: " + suspect + ", tetthely: " + room + ", gyilkos fegyver: " + weapon + ".";
+    }
 }

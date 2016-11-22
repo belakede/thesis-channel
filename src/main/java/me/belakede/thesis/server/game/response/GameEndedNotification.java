@@ -48,6 +48,6 @@ public class GameEndedNotification implements Notification, Serializable {
 
     @Override
     public String toString() {
-        return "A játék véget ért.";
+        return "A játék véget ért. " + winner + " a győztes.";
     }
 }

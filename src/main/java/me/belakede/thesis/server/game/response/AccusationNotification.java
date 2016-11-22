@@ -26,6 +26,6 @@ public class AccusationNotification extends Suspicion implements Notification, S
 
     @Override
     public String toString() {
-        return String.format("It was %s in the %s with the %", suspect, room, weapon);
+        return "Vádemelés " + suspect + " ellen. Tetthely: " + room + ", gyilkos fegyver: " + weapon + ".";
     }
 }
