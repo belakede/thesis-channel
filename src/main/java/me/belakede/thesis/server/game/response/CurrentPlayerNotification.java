@@ -1,7 +1,5 @@
 package me.belakede.thesis.server.game.response;
 
-import javafx.fxml.FXML;
-
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
@@ -12,7 +10,7 @@ public class CurrentPlayerNotification implements Notification, Serializable {
 
     @XmlElement
     private String current;
-    @FXML
+    @XmlElement
     private String next;
 
     public CurrentPlayerNotification() {
