@@ -3,6 +3,7 @@ package me.belakede.thesis.server.game.response;
 import me.belakede.thesis.junit.ExtendedEqualsHashCodeTestCase;
 import me.belakede.thesis.junit.JacksonSerializationTestCase;
 import me.belakede.thesis.junit.PojoClassTestCase;
+import me.belakede.thesis.server.game.domain.Action;
 import org.junit.experimental.runners.Enclosed;
 import org.junit.runner.RunWith;
 
@@ -40,12 +41,12 @@ public class CurrentPlayerNotificationTest {
 
         @Override
         public Notification expectedObject() {
-            return new CurrentPlayerNotification("testuser", "demouser");
+            return new CurrentPlayerNotification("testuser", "demouser", Action.MOVE);
         }
 
         @Override
         public String expectedJson() {
-            return "{\"type\":\"player\",\"current\":\"testuser\",\"next\":\"demouser\"}";
+            return "{\"type\":\"player\",\"current\":\"testuser\",\"next\":\"demouser\",\"action\":\"MOVE\"}";
         }
     }
 }

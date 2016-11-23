@@ -1,5 +1,7 @@
 package me.belakede.thesis.server.game.response;
 
+import me.belakede.thesis.server.game.domain.Action;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
@@ -12,6 +14,8 @@ public class CurrentPlayerNotification implements Notification, Serializable {
     private String current;
     @XmlElement
     private String next;
+    @XmlElement
+    private Action action;
 
     public CurrentPlayerNotification() {
         // It's required for an entity
@@ -20,6 +24,12 @@ public class CurrentPlayerNotification implements Notification, Serializable {
     public CurrentPlayerNotification(String current, String next) {
         this.current = current;
         this.next = next;
+    }
+
+    public CurrentPlayerNotification(String current, String next, Action action) {
+        this.current = current;
+        this.next = next;
+        this.action = action;
     }
 
     public String getCurrent() {
@@ -36,6 +46,14 @@ public class CurrentPlayerNotification implements Notification, Serializable {
 
     public void setNext(String next) {
         this.next = next;
+    }
+
+    public Action getAction() {
+        return action;
+    }
+
+    public void setAction(Action action) {
+        this.action = action;
     }
 
     @Override
