@@ -6,24 +6,24 @@ import me.belakede.thesis.junit.PojoClassTestCase;
 import org.junit.experimental.runners.Enclosed;
 import org.junit.runner.RunWith;
 
-import java.util.Collections;
+import java.util.Arrays;
 
 @RunWith(Enclosed.class)
 public class CurrentPlayerNotificationTest {
 
     public static final class CurrentPlayerNotificationEqualsHashCodeTest extends ExtendedEqualsHashCodeTestCase {
         public CurrentPlayerNotificationEqualsHashCodeTest(String name) {
-            super(name, CurrentPlayerNotification.class, Collections.singletonList("current"));
+            super(name, CurrentPlayerNotification.class, Arrays.asList("current", "next"));
         }
 
         @Override
         protected CurrentPlayerNotification createInstance() throws Exception {
-            return new CurrentPlayerNotification("admin");
+            return new CurrentPlayerNotification("admin", "demo");
         }
 
         @Override
         protected CurrentPlayerNotification createNotEqualInstance() throws Exception {
-            return new CurrentPlayerNotification("demo");
+            return new CurrentPlayerNotification("demo", "admin");
         }
     }
 
@@ -40,12 +40,12 @@ public class CurrentPlayerNotificationTest {
 
         @Override
         public Notification expectedObject() {
-            return new CurrentPlayerNotification("testuser");
+            return new CurrentPlayerNotification("testuser", "demouser");
         }
 
         @Override
         public String expectedJson() {
-            return "{\"type\":\"player\",\"current\":\"testuser\"}";
+            return "{\"type\":\"player\",\"current\":\"testuser\",\"next\":\"demouser\"}";
         }
     }
 }
