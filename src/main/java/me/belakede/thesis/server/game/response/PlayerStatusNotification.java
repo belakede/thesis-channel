@@ -106,8 +106,4 @@ public class PlayerStatusNotification implements Notification, Serializable {
         return result;
     }
 
-    @Override
-    public String toString() {
-        return String.format("Bábud: %s, kártyáid: %s", figurine, cards);
-    }
 }

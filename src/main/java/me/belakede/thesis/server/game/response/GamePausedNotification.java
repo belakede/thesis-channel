@@ -47,8 +47,4 @@ public class GamePausedNotification implements Notification, Serializable {
         return message != null ? message.hashCode() : 0;
     }
 
-    @Override
-    public String toString() {
-        return "A játék szünetel.";
-    }
 }

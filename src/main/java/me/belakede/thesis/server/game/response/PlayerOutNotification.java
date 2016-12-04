@@ -78,8 +78,4 @@ public class PlayerOutNotification implements Notification, Serializable {
         return result;
     }
 
-    @Override
-    public String toString() {
-        return String.format("%s kiesett a játékból. Kártyái: %s", user, cards);
-    }
 }

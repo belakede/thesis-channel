@@ -46,8 +46,4 @@ public class GameEndedNotification implements Notification, Serializable {
         return winner != null ? winner.hashCode() : 0;
     }
 
-    @Override
-    public String toString() {
-        return "A játék véget ért. " + winner + " a győztes.";
-    }
 }

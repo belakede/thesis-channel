@@ -46,8 +46,4 @@ public class PlayerJoinedNotification implements Notification, Serializable {
         return user != null ? user.hashCode() : 0;
     }
 
-    @Override
-    public String toString() {
-        return String.format("%s csatlakozott a játékhoz", user);
-    }
 }

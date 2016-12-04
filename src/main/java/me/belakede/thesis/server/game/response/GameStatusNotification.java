@@ -63,8 +63,4 @@ public class GameStatusNotification implements Notification, Serializable {
         return result;
     }
 
-    @Override
-    public String toString() {
-        return String.format("Játék indul a %s pályán, a következő játékosokkal: %s", boardStatus.getBoardType(), players.values());
-    }
 }

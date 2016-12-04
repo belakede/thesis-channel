@@ -74,16 +74,4 @@ public class CardNotification implements Notification, Serializable {
         return result;
     }
 
-    @Override
-    public String toString() {
-        String result = "A következő játékos nem rendelkezik a kérdéses kártyák közül eggyel sem.";
-        if (shown) {
-            if (card != null) {
-                result = "A mutatott kártya: " + card;
-            } else {
-                result = "A következő játékos rendelkezik valamelyik kártyával!";
-            }
-        }
-        return result;
-    }
 }

@@ -78,8 +78,4 @@ public class CurrentPlayerNotification implements Notification, Serializable {
         return result;
     }
 
-    @Override
-    public String toString() {
-        return String.format("%s köre kezdődik, %s felkészül", current, next);
-    }
 }

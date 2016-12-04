@@ -65,8 +65,4 @@ public class PairOfDiceNotification implements Notification, Serializable {
         return result;
     }
 
-    @Override
-    public String toString() {
-        return "Dobás: " + first + ", " + second;
-    }
 }
